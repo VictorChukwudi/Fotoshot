@@ -1,38 +1,102 @@
 .App {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.header {
+  margin-top: 30px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 28px;
+}
+.sc--search {
+  height: 35px;
+}
+.sc--search > button {
+  /* background-color: whitesmoke; */
+  border: none;
+  height: 33px;
+  width: 35px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.sc--bar {
+  width: 400px;
+  height: 30px;
+  margin-top: 10px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border: 1px solid gray;
+}
+.sc--categories {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+.sc--categories > li {
+  background-color: darkslategray;
+  border-radius: 3px;
+  color: white;
+  padding: 3px 8px;
+  width: 95px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sc--categories > li:hover {
+  cursor: pointer;
+}
+.result {
+  width: 60vw;
+  /* width: 700px; */
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.card {
+  display: inline-block;
+  width: 180px;
+  height: 100px;
+  margin: 3px 3px;
+  border: none;
+}
+.card > img {
+  width: 150px;
+  /* margin: 10px; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.card > img:hover {
+  width: 185px;
+}
+
+@media screen and (max-width: 420px) {
+  .sc--bar {
+    width: 200px;
+    margin-top: 10px;
+  }
+  .sc--categories {
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    margin-left: 15px;
+  }
+  .sc--categories > li {
+    width: 80vw;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 600px) {
+  .sc--bar {
+    width: 270px;
+    margin-top: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  .result {
+    width: 300px;
+  }
+  .card {
+    display: inline-block;
+    width: 150px;
+    height: 100px;
+    margin: 5px 10px;
+    border: none;
   }
 }

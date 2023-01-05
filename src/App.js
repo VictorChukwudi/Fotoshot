@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Card from "./components/Card";
+import Header from "./components/Header";
+import SearchCategories from "./components/SearchCategories";
+import SearchContextProvider from "./contexts/SearchContext";
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import data from "./data";
+// import Food from "./components/Food";
+// import Mountain from "./components/Mountain";
+// import Bird from "./components/Birds";
+// import Beaches from "./components/Beaches";
 function App() {
+  const myData = data.map((item) => <Card key={item.id} img={item.img} />);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <SearchContextProvider>
+        <SearchCategories />
+      </SearchContextProvider>
+      <div className="result">{myData}</div>
+      {/* <Router>
+        <Routes>
+          <Route path="/" element={<Card />} />
+          <Route path="/?query=mountains" element={<Mountain />} />
+          <Route path="/?query=beaches" element={<Beaches />} />
+          <Route path="/query=birds" element={<Bird />} />
+          <Route path="/?query=foods" element={<Food />} />
+        </Routes>
+      </Router> */}
     </div>
   );
 }
