@@ -61,11 +61,13 @@
 }
 .card > img {
   width: 150px;
+  height: 80px;
   /* margin: 10px; */
 }
 
 .card > img:hover {
   width: 185px;
+  height: 100px;
 }
 
 @media screen and (max-width: 420px) {

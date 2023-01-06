@@ -3,14 +3,20 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import SearchCategories from "./components/SearchCategories";
 import SearchContextProvider from "./contexts/SearchContext";
+import useFetch from "./useFetch";
 // import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import data from "./data";
+import { randomNumber } from "./utilities/random";
 // import Food from "./components/Food";
 // import Mountain from "./components/Mountain";
 // import Bird from "./components/Birds";
 // import Beaches from "./components/Beaches";
 function App() {
-  const myData = data.map((item) => <Card key={item.id} img={item.img} />);
+  const page = randomNumber();
+  const { photos } = useFetch(
+    `https://api.unsplash.com/photos?client_id=UDXe0X7kwY-_vsbi9agQUQ8v1CP5zAP53rztl63JEOI&page=1&per_page=12`
+  );
+  const myData = photos.map((item) => <Card key={item.id} img={item.img} />);
 
   return (
     <div className="App">

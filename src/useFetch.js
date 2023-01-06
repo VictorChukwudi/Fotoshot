@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
     fetch(url)
       .then((res) => {
-        console.log(res.json());
+        return res.json();
       })
-      .then((res) => {
-        setPhotos(res);
+      .then((data) => {
+        const result = data.map((item) => {
+          return {
+            id: data.indexOf(item) + 1,
+            img: item.urls.regular,
+          };
+        });
+        setPhotos(result);
       });
   }, [url]);
 
@@ -16,3 +22,4 @@ const useFetch = (url) => {
 };
 
 export default useFetch;
+// "https://api.unsplash.com/photos?client_id=UDXe0X7kwY-_vsbi9agQUQ8v1CP5zAP53rztl63JEOI&page=1&per_page=12"
