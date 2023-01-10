@@ -8,15 +8,12 @@ const SearchContextProvider = ({ children }) => {
     const { value } = e.target;
     setSearchText(value.trim());
   };
-  const handleClick = (e) => {
-    e.preventDefault();
-    console.log(searchText);
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
-    <SearchContext.Provider
-      value={{ searchText, setSearchText, handleChange, handleClick }}
-    >
+    <SearchContext.Provider value={{ searchText, setSearchText, handleChange }}>
       {children}
     </SearchContext.Provider>
   );

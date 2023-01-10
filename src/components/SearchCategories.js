@@ -2,9 +2,17 @@ import React, { useContext } from "react";
 import { SearchContext } from "../contexts/SearchContext";
 import searchIcon from "../images/searchwhite.png";
 
-const SearchCategories = () => {
-  const { searchText, handleChange, handleClick } = useContext(SearchContext);
+const SearchCategories = (props) => {
+  const { searchText, handleChange } = useContext(SearchContext);
   const buttonStyle = searchText ? "darkslategray" : "whitesmoke";
+
+  const handleSearch = () => {
+    props.searchState({
+      state: true,
+      text: searchText,
+    });
+  };
+
   return (
     <div className="sc container">
       <div className="sc--search">
@@ -16,7 +24,7 @@ const SearchCategories = () => {
           onChange={handleChange}
           value={searchText}
         />
-        <button style={{ backgroundColor: buttonStyle }} onClick={handleClick}>
+        <button style={{ backgroundColor: buttonStyle }} onClick={handleSearch}>
           <img src={searchIcon} alt="" width="21px" />
         </button>
       </div>

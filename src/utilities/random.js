@@ -1,3 +1,3 @@
 export const randomNumber = () => {
-  return Math.round(Math.random() * 20);
+  return Math.round(Math.random() * 5);
 };
