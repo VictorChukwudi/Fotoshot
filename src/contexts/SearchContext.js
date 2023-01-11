@@ -6,14 +6,17 @@ const SearchContextProvider = ({ children }) => {
   const [searchText, setSearchText] = useState("");
   const handleChange = (e) => {
     const { value } = e.target;
-    setSearchText(value.trim());
+    setSearchText(value);
   };
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  // };
 
   return (
-    <SearchContext.Provider value={{ searchText, setSearchText, handleChange }}>
+    <SearchContext.Provider
+      value={{
+        searchText,
+        setSearchText,
+        handleChange,
+      }}
+    >
       {children}
     </SearchContext.Provider>
   );

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { SearchContext } from "../contexts/SearchContext";
 import searchIcon from "../images/searchwhite.png";
 
@@ -6,11 +7,24 @@ const SearchCategories = (props) => {
   const { searchText, handleChange } = useContext(SearchContext);
   const buttonStyle = searchText ? "darkslategray" : "whitesmoke";
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     props.searchState({
       state: true,
       text: searchText,
     });
+  };
+  const mountains = () => {
+    props.category("mountains");
+  };
+  const beaches = () => {
+    props.category("beaches");
+  };
+  const birds = () => {
+    props.category("birds");
+  };
+  const foods = () => {
+    props.category("foods");
   };
 
   return (
@@ -30,10 +44,18 @@ const SearchCategories = (props) => {
       </div>
 
       <ul className="sc--categories">
-        <li value={"Mountains"}>Mountains</li>
-        <li value={"Beaches"}>Beaches</li>
-        <li value={"Birds"}>Birds</li>
-        <li value={"Food"}>Food</li>
+        <Link to="/mountains" onClick={mountains}>
+          mountains
+        </Link>
+        <Link to="/beaches" onClick={beaches}>
+          beaches
+        </Link>
+        <Link to="/birds" onClick={birds}>
+          birds
+        </Link>
+        <Link to="/foods" onClick={foods}>
+          foods
+        </Link>
       </ul>
     </div>
   );

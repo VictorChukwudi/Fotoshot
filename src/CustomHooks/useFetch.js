@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
-  const [photos, setPhotos] = useState([]);
+  const [images, setImages] = useState([]);
   useEffect(() => {
-    fetch(url)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        const result = data.map((item) => {
-          return {
-            id: data.indexOf(item) + 1,
-            img: item.urls.regular,
-          };
+    setTimeout(() => {
+      fetch(url)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          const result = data.results.map((item) => {
+            return {
+              id: data.results.indexOf(item) + 1,
+              img: item.urls.regular,
+            };
+          });
+          setImages(result);
         });
-        setPhotos(result);
-      });
+    }, 1000);
   }, [url]);
 
-  return { photos };
+  return { images };
 };
 
 export default useFetch;
