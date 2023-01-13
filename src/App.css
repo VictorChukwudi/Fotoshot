@@ -11,6 +11,14 @@
 .sc--search {
   height: 35px;
 }
+.sc--search > input {
+  border: 0.25px solid black;
+}
+.sc--search > a {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  /* width: 35px; */
+}
 .sc--search > button {
   /* background-color: whitesmoke; */
   border: none;
@@ -46,6 +54,9 @@
   text-align: center;
 }
 
+.sc--categories > a:active {
+  color: maroon;
+}
 .sc--categories > li:hover {
   cursor: pointer;
 }
@@ -73,27 +84,11 @@
   height: 100px;
 }
 
-@media screen and (max-width: 420px) {
-  .sc--bar {
-    width: 200px;
-    margin-top: 10px;
-  }
-  .sc--categories {
-    flex-direction: column;
-    align-items: center;
-    margin: 30px;
-    margin-left: 15px;
-  }
-  .sc--categories > li {
-    width: 80vw;
-  }
-}
-
 @media screen and (max-width: 600px) {
-  .sc--bar {
+  /* .sc--bar {
     width: 270px;
     margin-top: 10px;
-  }
+  } */
   .result {
     width: 300px;
   }
@@ -103,5 +98,34 @@
     height: 100px;
     margin: 5px 10px;
     border: none;
+  }
+}
+@media screen and (max-width: 420px) {
+  .sc--bar {
+    width: 69vw;
+    margin-top: 5vw;
+    margin-left: 3vw;
+  }
+  .sc--categories {
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    margin-left: 15px;
+  }
+  .sc--categories > a {
+    width: 80vw;
+  }
+  .card {
+    width: 200px;
+  }
+  .card > img {
+    width: 180px;
+    height: 100px;
+
+    /* margin: 10px; */
+  }
+  .card > img :hover {
+    width: auto;
+    height: auto;
   }
 }

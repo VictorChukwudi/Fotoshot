@@ -1,11 +1,8 @@
 import React from "react";
-
+import useImage from "../CustomHooks/useImage";
 const Card = (props) => {
-  return (
-    <div className="card">
-      <img src={props.img} alt="" />
-    </div>
-  );
+  const img = props.img;
+  return <div className="card">{useImage(img)}</div>;
 };
 
 export default Card;

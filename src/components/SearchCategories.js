@@ -38,8 +38,11 @@ const SearchCategories = (props) => {
           onChange={handleChange}
           value={searchText}
         />
+
         <button style={{ backgroundColor: buttonStyle }} onClick={handleSearch}>
-          <img src={searchIcon} alt="" width="21px" />
+          <Link to="/search">
+            <img src={searchIcon} alt="" width="21px" />
+          </Link>
         </button>
       </div>
 

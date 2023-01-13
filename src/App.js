@@ -21,8 +21,8 @@ function App() {
   //State for categories nav
   const [category, setCategory] = useState("");
   let url = !searcher.state
-    ? `https://api.unsplash.com/photos?client_id=UDXe0X7kwY-_vsbi9agQUQ8v1CP5zAP53rztl63JEOI&page=${page_number}&per_page=12`
-    : `https://api.unsplash.com/search/photos?client_id=UDXe0X7kwY-_vsbi9agQUQ8v1CP5zAP53rztl63JEOI&page=${page_number}&query=${searcher.text}&per_page=12`;
+    ? `https://api.unsplash.com/photos?client_id=UDXe0X7kwY-_vsbi9agQUQ8v1CP5zAP53rztl63JEOI&page=1&per_page=12`
+    : `https://api.unsplash.com/search/photos?client_id=UDXe0X7kwY-_vsbi9agQUQ8v1CP5zAP53rztl63JEOI&page=1&query=${searcher.text}&per_page=12`;
 
   const { photos } = useSearch(url);
   const { images } = useFetch(
@@ -33,7 +33,6 @@ function App() {
   const categories = images.map((item) => (
     <Card key={item.id} img={item.img} />
   ));
-
   return (
     <div className="App">
       <Header />
@@ -47,6 +46,10 @@ function App() {
         </SearchContextProvider>
         <Routes>
           <Route path="/" element={<div className="result">{myData}</div>} />
+          <Route
+            path="/search"
+            element={<div className="result">{myData}</div>}
+          />
           <Route
             path="/mountains"
             element={<div className="result">{categories}</div>}
