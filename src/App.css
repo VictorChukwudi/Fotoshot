@@ -75,13 +75,15 @@
 }
 .card > img {
   width: 150px;
-  height: 80px;
+  height: auto;
   /* margin: 10px; */
 }
 
 .card > img:hover {
   width: 185px;
-  height: 100px;
+  height: auto;
+  position:relative;
+  z-index:100;
 }
 
 @media screen and (max-width: 600px) {
@@ -120,12 +122,14 @@
   }
   .card > img {
     width: 180px;
-    height: 100px;
+    height: auto;
 
     /* margin: 10px; */
   }
   .card > img :hover {
     width: auto;
     height: auto;
+    position:relative;
+    z-index:100;
   }
 }
