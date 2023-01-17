@@ -4,42 +4,43 @@ const useSearch = (url) => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    const fetchPhotos = () => {
-      if (/query=/.test(url)) {
-        fetch(url)
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            const result = data.results.map((item) => {
-              return {
-                id: data.results.indexOf(item) + 1,
-                img: item.urls.regular,
-              };
-            });
-            setPhotos(result);
+    if (/query=/.test(url)) {
+      fetch(url)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          const result = data.results.map((item) => {
+            return {
+              id: data.results.indexOf(item) + 1,
+              img: item.urls.regular,
+            };
           });
-      } else {
-        fetch(url)
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            const result = data.map((item) => {
-              return {
-                id: data.indexOf(item) + 1,
-                img: item.urls.regular,
-              };
-            });
-            setPhotos(result);
+          setPhotos(result);
+        });
+    } else {
+      fetch(url)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          const result = data.map((item) => {
+            return {
+              id: data.indexOf(item) + 1,
+              img: item.urls.regular,
+            };
           });
-      }
-    };
-    const timer = setTimeout(() => {
-      fetchPhotos();
-    }, 1000);
+          setPhotos(result);
+        });
+    }
+    // const fetchPhotos = () => {
 
-    return () => clearTimeout(timer);
+    // };
+    // const timer = setTimeout(() => {
+    //   fetchPhotos();
+    // }, 1000);
+
+    // return () => clearTimeout(timer);
   }, [url]);
 
   return { photos };

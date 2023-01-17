@@ -3,21 +3,22 @@ import { useEffect, useState } from "react";
 const useFetch = (url) => {
   const [images, setImages] = useState([]);
   useEffect(() => {
-    setTimeout(() => {
-      fetch(url)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          const result = data.results.map((item) => {
-            return {
-              id: data.results.indexOf(item) + 1,
-              img: item.urls.regular,
-            };
-          });
-          setImages(result);
+    fetch(url)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        const result = data.results.map((item) => {
+          return {
+            id: data.results.indexOf(item) + 1,
+            img: item.urls.regular,
+          };
         });
-    }, 1000);
+        setImages(result);
+      });
+    // setTimeout(() => {
+
+    // }, 1000);
   }, [url]);
 
   return { images };
